@@ -13,6 +13,7 @@ cryptage.title("MultiCrypt")                                                    
 cryptage.geometry("700x500")                                                                                             #taille de la page
 cryptage.iconbitmap("logo.ico")                                                                                          #Insertion du logo
 cryptage.config(background="orange")                                                                                     #couleur de fond
+cryptage.resizable(width=False, height=False)                                                                            # On empêche la modif de la fenêtre
 
 
 
@@ -42,6 +43,31 @@ Affiche_code=Entry(cryptage,width=30)                                           
 Affiche_code.place(x=500,y=410)
 code=Label(cryptage,text="Result")
 code.place(x=570,y=360)
+
+def select(event):                                                                                                      # Ajoute de la ListBox
+    sel = Lb.selection_get()
+    L.configure(text = sel)
+
+Lb = Listbox(cryptage,font="Verdana 20 bold",width = 10, height = 20)
+Lb.insert(1,"CESARD")
+Lb.insert(2,"VERNAM")
+Lb.insert(3,"VIGENERE")
+
+
+
+Lb.pack(side=LEFT)
+
+Lb.bind('<<ListboxSelect>>', select)
+
+Lb.pack()
+
+L = Label(cryptage,text="")
+L.place(x=550,y=20)
+
+
+
+
+
 
 
 cryptage.mainloop()
