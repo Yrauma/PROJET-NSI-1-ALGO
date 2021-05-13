@@ -6,7 +6,7 @@ cryptage=Tk()
 def validation():                                                                                                        #Fonction validation
     Msg=(Zone_de_texte.get())                                                                                              #Insérer une information, #I variable pour information
     Key=int(Zone_de_texte_2.get())
-    V = crypt(Msg,Key)
+    V = decrypt(Msg,Key)
     Affiche_code.insert(0,V)                                                                                             #Reliage des informations
 
 
@@ -39,14 +39,15 @@ Affiche_code.place(x=500,y=410)
 code=Label(cryptage,text="Result")
 code.place(x=570,y=360)
 
-cesard="DESCRIPTION CESARD"
-vernam="DESCRIPTION VERNAM"
-vigenere="DESCRIPTION VIGENERE"
+cesard="DESCRIPTION\nCESARD"
+vernam="DESCRIPTION\nVERNAM"
+vigenere="DESCRIPTION\nVIGENERE"
 
 def select(event):                                                                                                      
     sel = Lb.selection_get()
     L.configure(text = sel)
 
+#Code pour implémenter le texte de tescription avec la listbox
 def description(event):
     code=Lb.selection_get()
     if code == "CESARD":
@@ -69,9 +70,9 @@ Lb.pack()
 L = Label(cryptage,text="",width=10,height=2,bg="white")
 L.place(x=540,y=10)
 
+# Création de la zone de description des types de cryptage
 cnv = Label(cryptage,text="",width=35, height=20, bg="white")                                             
 cnv.place(x=440,y=50)
 
 cryptage.mainloop()
 
-# Création de la zone de description des types de cryptage
