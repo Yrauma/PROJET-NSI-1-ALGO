@@ -18,7 +18,6 @@ def crypt(mot,clé):
         else:
             raise TypeError
 
-
 def decrypt(mot ,clé):
     liste=[]
     for l in mot:
@@ -38,5 +37,3 @@ def decrypt(mot ,clé):
         
         else:
             raise TypeError
-
-

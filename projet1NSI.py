@@ -3,18 +3,13 @@ from cesar import *
 
 cryptage=Tk()
 
-def validation():                                                                                                        #Fonction validation
-    Msg=(Zone_de_texte.get())                                                                                              #Insérer une information, #I variable pour information
-    Key=int(Zone_de_texte_2.get())
-    V = decrypt(Msg,Key)
-    Affiche_code.insert(0,V)                                                                                             #Reliage des informations
-
 
 cryptage.title("MultiCrypt")                                                                                             #Creation du titre
 cryptage.geometry("700x500")                                                                                             #taille de la page
-cryptage.iconbitmap("logo.ico")                                                                                          #Insertion du logo
-cryptage.config(background="orange")                                                                                     #couleur de fond
+cryptage.config(bg="green")
+cryptage.iconbitmap("logo.ico")                                                                                          #Insertion du logo                                                                                    #couleur de fond
 cryptage.resizable(width=False, height=False)                                                                            # On empêche la modif de la fenêtre
+
 
 
 Titre1= Label(cryptage, text="MESSAGE")                                                                                  # Titre Message
@@ -28,16 +23,10 @@ Zone_de_texte_2=Entry(cryptage,width=30)                                        
 Zone_de_texte_2.place(x=250,y=150)
 
 
-
-Bouton_Validation=Button(cryptage,text="Valider",command=validation)                                                    #Bouton validation
-Bouton_Validation.place(x=320,y=400)
-
-
-
 Affiche_code=Entry(cryptage,width=30)                                                                                    #Zone de résultat,Information crypter ou décrypter
 Affiche_code.place(x=500,y=410)
 code=Label(cryptage,text="Result")
-code.place(x=570,y=360)
+code.place(x=570,y=380)
 
 cesard="DESCRIPTION\nCESARD"
 vernam="DESCRIPTION\nVERNAM"
@@ -74,5 +63,37 @@ L.place(x=540,y=10)
 cnv = Label(cryptage,text="",width=35, height=20, bg="white")                                             
 cnv.place(x=440,y=50)
 
-cryptage.mainloop()
+# Création des CheckBouttons crypter et décrypter
 
+def validation_cryptage_cesard():                                                                                                               
+    Msg=(Zone_de_texte.get())                                                                                         
+    Key=int(Zone_de_texte_2.get())
+    V = crypt(Msg,Key)
+    Affiche_code.insert(0,V)
+
+def validation_decryptage_cesard():                                                                                                               
+    Msg=(Zone_de_texte.get())                                                                                         
+    Key=int(Zone_de_texte_2.get())
+    V = decrypt(Msg,Key)
+    Affiche_code.insert(0,V)
+
+
+checkbox_crypter = Checkbutton(cryptage, text="CRYPTER",command=validation_cryptage_cesard,bg="orange")
+checkbox_crypter.place(x=310,y=300)
+
+checkbox_decrypter = Checkbutton(cryptage,text="DECRYPTER",command=validation_decryptage_cesard,bg="orange")
+checkbox_decrypter.place(x=305,y=330)
+
+# Création du boutton Clear
+
+def Clear():
+    Mg=(Zone_de_texte.delete(0,END))
+    Z=(Zone_de_texte_2.delete(0,END))
+    F=(Affiche_code.delete(0,END))
+    G=(checkbox_crypter.deselect())
+    H=(checkbox_decrypter.deselect())
+
+Bouton_Supprimer=Button(cryptage,text="Clear",command=Clear)
+Bouton_Supprimer.place(x=323,y=450)
+
+cryptage.mainloop()
