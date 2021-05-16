@@ -18,23 +18,6 @@ def crypt_cesar(mot,clé):
                 decr=chr((ord(cmpt)+clé-97)%26+97)
                 liste.append(decr)
             return liste
-        
-    else:
-        winsound.PlaySound('Error_sound_windows', winsound.SND_FILENAME | winsound.SND_ASYNC)
-        time.sleep(2)  # Attendre 2s
-        winsound.PlaySound(None, 0)  # Interruption de la lecture
-        fenetre_error = Toplevel()
-        fenetre_error.title("ERREUR")
-        fenetre_error.config(bg="red")
-        fenetre_error.geometry("450x450")
-        can = Canvas(fenetre_error,width=450,height=450,bg="white")
-        img=PhotoImage(file="images\erreur.png")
-        can.create_image(0,0,anchor=NW,image=img)
-        can.place(x=0,y=0)
-        fenetre_error.resizable(width=False, height=False)
-        fenetre_error.iconbitmap("images\download.ico")    
-        raise TypeError
-
 
 def decrypt_cesar(mot ,clé):
     liste=[]
@@ -52,19 +35,3 @@ def decrypt_cesar(mot ,clé):
                 decr=chr((ord(cmpt)-clé-97)%26+97)
                 liste.append(decr)
             return liste
-
-    else:
-        winsound.PlaySound('Error_sound_windows', winsound.SND_FILENAME | winsound.SND_ASYNC)
-        time.sleep(2)  # Attendre 2s
-        winsound.PlaySound(None, 0)  # Interruption de la lecture
-        fenetre_error = Toplevel()
-        fenetre_error.title("ERREUR")
-        fenetre_error.config(bg="red")
-        fenetre_error.geometry("450x450")
-        can = Canvas(fenetre_error,width=450,height=450,bg="white")
-        img=PhotoImage(file="images\erreur.png")
-        can.create_image(0,0,anchor=NW,image=img)
-        can.place(x=0,y=0)
-        fenetre_error.resizable(width=False, height=False)
-        fenetre_error.iconbitmap("images\download.ico")    
-        raise TypeError
