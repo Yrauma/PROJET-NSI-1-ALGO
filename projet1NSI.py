@@ -4,16 +4,16 @@ from vigenere import *
 
 cryptage=Tk()
 
-cryptage.title("MultiCrypt")                                                                                             #Creation du titre
-cryptage.geometry("700x500")                                                                                             #taille de la page
-cryptage.config(bg="green")
-cryptage.iconbitmap("images\logo.ico")                                                                                   #Insertion du logo                                                                                    #couleur de fond
-cryptage.resizable(width=False, height=False)                                                                            # On empêche la modif de la fenêtre
+cryptage.title("MultiCrypt")                                                                        # Creation du titre
+cryptage.geometry("700x500")                                                                        # Taille de la page
+cryptage.config(bg="green")                                                                         # Ajout des descriptions      
+cryptage.iconbitmap("images\logo.ico")                                                              # Insertion du logo      
+cryptage.resizable(width=False, height=False)                                                       # On empêche la modif de la fenêtre
 
 def select(event):
-    cesard="DESCRIPTION\nCESARD"
-    vernam="DESCRIPTION\nVERNAM"
-    vigenere="DESCRIPTION\nVIGENERE"                                                                                                      
+    cesard="Date de Parution : \nIXème siècle\n\nType : \nSymétrique et par Substitution.\n On utilise un décalage créer par une clé\nde cryptage sous forme de CHIFFRES.\n\n Description du fonctionnement : \n La clé doit être connue par le crypteur et le\ndécrypteur.\n↓\n Msg :     A L ' A I D E\n Position : 1,12,1,9,4,5\n Chiffré :    C  N ' C K F G"
+    vernam="DESCRIPTION\nVIGENERE"
+    vigenere="Date de Parution : \n1586\n\nType : \nSymétrique et par Substitution.\n On utilise un décalage créer par une clé\nde cryptage sous forme de LETTRES.\n\n Description du fonctionnement : \n La clé doit être connue par le crypteur et le\ndécrypteur.\n↓\n         Msg  :  A L ' A I D E\n            Key :     V  I   G  E  N  E\n Decalage :      22, 9 ,7,  5, 14, 5\n Chiffre :         W  U  H  M  R  J"                                                                                                      
     code = Lb.selection_get()
 
     # CODE CESARD
