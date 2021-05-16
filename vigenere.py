@@ -1,3 +1,7 @@
+# ALGORITHME DU CRYPTAGE VIGENERE AVEC LES DIFFERENTES POP-UP ET 
+# MESSAGES DES ERREURS SI LES TYPES SOUHAITE NE SONT PAS RECONNUS
+
+ 
 from cesar import decrypt_cesar
 from tkinter import *
 import winsound

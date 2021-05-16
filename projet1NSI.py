@@ -1,18 +1,24 @@
+# PROJET N°1 NSI : THEME : ALGORITHMIQUE;
+# VIAL AMAURY TLEB
+# LARBAOUI RIYAD TLEB
+
 from tkinter import *
 from cesar import *
 from vigenere import *
+from vernam import *
 
 cryptage=Tk()
 
-cryptage.title("MultiCrypt")                                                                        # Creation du titre
-cryptage.geometry("700x500")                                                                        # Taille de la page
-cryptage.config(bg="green")                                                                         # Ajout des descriptions      
-cryptage.iconbitmap("images\logo.ico")                                                              # Insertion du logo      
-cryptage.resizable(width=False, height=False)                                                       # On empêche la modif de la fenêtre
+cryptage.title("MultiCrypt")                                                          # Creation du titre
+cryptage.geometry("700x500")                                                          # Taille de la page
+cryptage.config(bg="green")                                                           # Ajout des descriptions      
+cryptage.iconbitmap("images\logo.ico")                                                # Insertion du logo      
+cryptage.resizable(width=False, height=False)                                         # On empêche la modif de la fenêtre
 
+# Création de la fonction qui est reliée aux évènements de clicks de la ListBox
 def select(event):
     cesard="Date de Parution : \nIXème siècle\n\nType : \nSymétrique et par Substitution.\n On utilise un décalage créer par une clé\nde cryptage sous forme de CHIFFRES.\n\n Description du fonctionnement : \n La clé doit être connue par le crypteur et le\ndécrypteur.\n↓\n Msg :     A L ' A I D E\n Position : 1,12,1,9,4,5\n Chiffré :    C  N ' C K F G"
-    vernam="DESCRIPTION\nVIGENERE"
+    vernam="Date de Parution : \n1917\n\nType : \nSymétrique et par l'opération XOR.\n On transforme notre message en binaire\npuis on l'additionne en XOR avec la clé choisie\nLe message crypté sera en binaire et il faut faire\nl'opération inverse pour déchiffrer le lessage\n\n Description du fonctionnement : \n La clé doit être connue par le crypteur et le\ndécrypteur.\n↓\n Msg:A\nMsg en binaire:01000001\n Key :01001110\n Chiffré0001111"
     vigenere="Date de Parution : \n1586\n\nType : \nSymétrique et par Substitution.\n On utilise un décalage créer par une clé\nde cryptage sous forme de LETTRES.\n\n Description du fonctionnement : \n La clé doit être connue par le crypteur et le\ndécrypteur.\n↓\n         Msg  :  A L ' A I D E\n            Key :     V  I   G  E  N  E\n Decalage :      22, 9 ,7,  5, 14, 5\n Chiffre :         W  U  H  M  R  J"                                                                                                      
     code = Lb.selection_get()
 
@@ -31,19 +37,19 @@ def select(event):
         cnv.configure(text=cesard)
         
         # Zone de texte Message
-        Titre1= Label(newWindow_1, text="MESSAGE")                                                                                  # Titre Message
+        Titre1= Label(newWindow_1, text="MESSAGE")                                     # Titre Message
         Titre1.place(x=320,y=175)
-        Zone_de_texte=Entry(newWindow_1,width=30)                                                                                   #Zone d'entré du message
+        Zone_de_texte=Entry(newWindow_1,width=30)                                      #Zone d'entré du message
         Zone_de_texte.place(x=250,y=200)
         
         #Zone de texte Cryptage
-        Titre2=Label(newWindow_1,text="KEY")                                                                                        #Titre Clé
+        Titre2=Label(newWindow_1,text="KEY")                                           #Titre Clé
         Titre2.place(x=330,y=120)
-        Zone_de_texte_2=Entry(newWindow_1,width=30)                                                                                 #Zone d'entrée de la clé
+        Zone_de_texte_2=Entry(newWindow_1,width=30)                                    #Zone d'entrée de la clé
         Zone_de_texte_2.place(x=250,y=150)
        
         #Zone de texte Resultat 
-        Affiche_code=Entry(newWindow_1,width=30)                                                                                    #Zone de résultat,Information crypter ou décrypter
+        Affiche_code=Entry(newWindow_1,width=30)                                      #Zone de résultat,Information crypter ou décrypter
         Affiche_code.place(x=500,y=410)
         code=Label(newWindow_1,text="RESULT")
         code.place(x=570,y=380)
@@ -138,19 +144,19 @@ def select(event):
         cnv.configure(text=vernam)
         
         # Zone de texte Message
-        Titre1= Label(newWindow_1, text="MESSAGE")                                                                                  # Titre Message
+        Titre1= Label(newWindow_1, text="MESSAGE")                            # Titre Message
         Titre1.place(x=320,y=175)
-        Zone_de_texte=Entry(newWindow_1,width=30)                                                                                   #Zone d'entré du message
+        Zone_de_texte=Entry(newWindow_1,width=30)                             #Zone d'entré du message
         Zone_de_texte.place(x=250,y=200)
         
         #Zone de texte Cryptage
-        Titre2=Label(newWindow_1,text="KEY")                                                                                        #Titre Clé
+        Titre2=Label(newWindow_1,text="KEY")                                  #Titre Clé
         Titre2.place(x=330,y=120)
-        Zone_de_texte_2=Entry(newWindow_1,width=30)                                                                                 #Zone d'entrée de la clé
+        Zone_de_texte_2=Entry(newWindow_1,width=30)                           #Zone d'entrée de la clé
         Zone_de_texte_2.place(x=250,y=150)
         
         #Zone de texte Resultat 
-        Affiche_code=Entry(newWindow_1,width=30)                                                                                    #Zone de résultat,Information crypter ou décrypter
+        Affiche_code=Entry(newWindow_1,width=30)                              #Zone de résultat,Information crypter ou décrypter
         Affiche_code.place(x=500,y=410)
         code=Label(newWindow_1,text="RESULT")
         code.place(x=570,y=380)
@@ -202,19 +208,19 @@ def select(event):
         cnv.configure(text=vigenere)
         
         # Zone de texte Message
-        Titre1= Label(newWindow_1, text="MESSAGE")                                                                                  # Titre Message
+        Titre1= Label(newWindow_1, text="MESSAGE")                                 # Titre Message
         Titre1.place(x=320,y=175)
-        Zone_de_texte=Entry(newWindow_1,width=30)                                                                                   #Zone d'entré du message
+        Zone_de_texte=Entry(newWindow_1,width=30)                                  #Zone d'entré du message
         Zone_de_texte.place(x=250,y=200)
         
         #Zone de texte Cryptage
-        Titre2=Label(newWindow_1,text="KEY")                                                                                        #Titre Clé
+        Titre2=Label(newWindow_1,text="KEY")                                        #Titre Clé
         Titre2.place(x=330,y=120)
-        Zone_de_texte_2=Entry(newWindow_1,width=30)                                                                                 #Zone d'entrée de la clé
+        Zone_de_texte_2=Entry(newWindow_1,width=30)                                 #Zone d'entrée de la clé
         Zone_de_texte_2.place(x=250,y=150)
         
         #Zone de texte Resultat 
-        Affiche_code=Entry(newWindow_1,width=30)                                                                                    #Zone de résultat,Information crypter ou décrypter
+        Affiche_code=Entry(newWindow_1,width=30)                                   #Zone de résultat,Information crypter ou décrypter
         Affiche_code.place(x=500,y=410)
         code=Label(newWindow_1,text="RESULT")
         code.place(x=570,y=380)
