@@ -1,0 +1,6 @@
+Pour pouvoir utiliser le projet, il faut que je dossier complet soit présent dans l'IDE au choix.
+
+Par exemple, si l'IDE choisit est VS Code; il faut glisser l'entierreté du dossier sur l'espace de travail.
+
+Enfin, il faut lancer le programme principal nommé : "projet1NSI" qui fait appel a des import pour récupérer le codes des cryptages. 
+

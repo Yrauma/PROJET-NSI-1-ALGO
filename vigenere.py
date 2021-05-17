@@ -1,24 +1,35 @@
 # ALGORITHME DU CRYPTAGE VIGENERE AVEC LES DIFFERENTES POP-UP ET 
 # MESSAGES DES ERREURS SI LES TYPES SOUHAITE NE SONT PAS RECONNUS
 
- 
 from cesar import decrypt_cesar
 from tkinter import *
 import winsound
 import time
 
 def chiffre_vigenere(msg, cle):
-    alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet_1 = 'abcdefghijklmnopqrstuvwxyz'
     res = ''
     i = 0
     for caractere in msg :
         if 65 <= ord(caractere) <= 90:
-            debut = alpha.find(cle[i])
-            pos = alpha.find(caractere)
+            debut = alphabet.find(cle[i])
+            pos = alphabet.find(caractere)
             indice = pos+debut
             if indice > 25:
                 indice -= 26
-            res += alpha[indice]
+            res += alphabet[indice]
+            i += 1
+            if i >= len(cle):
+                i = 0
+        
+        elif 97<=ord(caractere) <=122:
+            debut = alphabet_1.find(cle[i])
+            pos = alphabet_1.find(caractere)
+            indice = pos+debut
+            if indice > 25:
+                indice -= 26
+            res += alphabet_1[indice]
             i += 1
             if i >= len(cle):
                 i = 0
@@ -42,8 +53,9 @@ def chiffre_vigenere(msg, cle):
             button_quitter.pack(side=TOP)    
             raise TypeError
     for val in cle:
-        if 65<=ord(val)<=90:
+        if 65<=ord(val)<=90 or 97<=ord(val)<=122:
             None
+
         else:
             def quit():
                     fenetre_error.destroy()
@@ -68,20 +80,33 @@ def chiffre_vigenere(msg, cle):
     
 
 def dechiffre_vigenere(msg, cle):
-    alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet_1 = 'abcdefghijklmnopqrstuvwxyz'
     res = ''
     i = 0
     for caractere in msg:
         if 65 <= ord(caractere) <= 90:
-            debut = alpha.find(cle[i])
-            pos = alpha.find(caractere)
+            debut = alphabet.find(cle[i])
+            pos = alphabet.find(caractere)
             indice = pos-debut
             if indice > 25:
                 indice -= 26
-            res += alpha[indice]
+            res += alphabet[indice]
             i += 1
             if i >= len(cle):
                 i = 0
+
+        elif 97<=ord(caractere) <=122:
+            debut = alphabet_1.find(cle[i])
+            pos = alphabet_1.find(caractere)
+            indice = pos-debut
+            if indice > 25:
+                indice -= 26
+            res += alphabet_1[indice]
+            i += 1
+            if i >= len(cle):
+                i = 0
+
         else:
             def quit():
                     fenetre_error.destroy()
@@ -102,7 +127,7 @@ def dechiffre_vigenere(msg, cle):
             button_quitter.pack(side=TOP)    
             raise TypeError  
     for val in cle:
-        if 65<=ord(val)<=90:
+        if 65<=ord(val)<=90 or 97<=ord(val)<=122:
             None
         else:
             def quit():
@@ -122,5 +147,6 @@ def dechiffre_vigenere(msg, cle):
             fenetre_error.iconbitmap("images\download.ico")
             button_quitter = Button(fenetre_error, text = 'QUIT', command=quit,bg="red")
             button_quitter.pack(side=TOP)    
-            raise TypeError        
+            raise TypeError 
+
     return res
